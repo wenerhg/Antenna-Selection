@@ -5,7 +5,7 @@
 function R = rate_K_user_MIMO(U, H, V,xigma)
 
 R = 0;
-[~, d K] = size(V); % obtain the parameters
+[~, d,K] = size(V); % obtain the parameters
 S = zeros(d,d,K); % initialize the useful signal matrix
 J = zeros(d, (K-1)*d, K); % initialize the interference matrix
   for i = 1:K

@@ -13,13 +13,13 @@ close all
 Mr = 2;    %接收天线数
 Mt = 3;    %发射天线数
 M = Mt-1;  %选择天线数
-Q = 20;    %采样数
+Q = 10;    %采样数
 rho = 0.5; %更新参数
 lambda = 0.8; %更新参数
 delta = 1; %误差
 d = 1;     %数据流
 K = 3;     %用户数
-loop =  10; %循环次数
+loop =  20; %循环次数
 iter_leakmin = 100; %迭代步数
 
 SNR = [0:5:50]; %发射功率范围
@@ -74,7 +74,7 @@ for k = 1:loop     %%循环loop次取平均
         end
         [V,U] = maxSINR_K_user(H_AS, V, xigma, iter_leakmin);
         R_CEO(snr,k) = rate_K_user(U, H_AS, V, xigma);
-        % Cross-Entropy Optimization Search with max-SINR Algorithm
+        % Cross-Entropy Optimization Search with Chordal Distance
     end
     k
 end
